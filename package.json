@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "umi dev",
-    "build": "craco build",
+    "build": "umi build",
     "test": "craco test"
   },
   "eslintConfig": {

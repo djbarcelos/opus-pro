@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import defaultSettings from './defaultSettings';
 
 export default defineConfig({
   // locale: { antd: true },
@@ -15,7 +16,7 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component: '../App',
+      component: '../layout/layoutBasic',
       routes: [
         {
           path: '/',
@@ -24,14 +25,14 @@ export default defineConfig({
         {
           path: '/dashboard',
           name: 'Principal',
-          icon: 'dashboard',
+          icon: '',
           component: './dashboard',
         },
         {
-          path: '/constructions',
-          name: 'Principal',
-          icon: 'constructions',
-          component: './constructions/constructions',
+          path: '/obras',
+          name: 'Obras',
+          icon: '',
+          component: './constructions',
         }
       ],
     },
@@ -41,6 +42,13 @@ export default defineConfig({
   //   { path: '/', component: '../App' },
   //   { path: '/dashboard', component: './dashboard/index' }
   // ],
+  theme: {
+    // ...darkTheme,
+    'primary-color': defaultSettings.primaryColor,
+  },
+  // @ts-ignore
+  title: defaultSettings.title,
+  ignoreMomentLocale: true,
   manifest: {
     basePath: '/',
   }

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType } from '/home/moraes/projects/ngo/react/opus-pro/node_modules/@umijs/runtime';
+import { ApplyPluginsType } from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 
@@ -8,7 +8,7 @@ export function getRoutes() {
   const routes = [
   {
     "path": "/",
-    "component": require('/home/moraes/projects/ngo/react/opus-pro/src/App').default,
+    "component": require('/home/diogo/projects/ngo/react-app/opus-pro/src/layout/layoutBasic').default,
     "routes": [
       {
         "path": "/",
@@ -18,15 +18,15 @@ export function getRoutes() {
       {
         "path": "/dashboard",
         "name": "Principal",
-        "icon": "dashboard",
-        "component": require('/home/moraes/projects/ngo/react/opus-pro/src/pages/dashboard').default,
+        "icon": "",
+        "component": require('/home/diogo/projects/ngo/react-app/opus-pro/src/pages/dashboard').default,
         "exact": true
       },
       {
-        "path": "/constructions",
-        "name": "Principal",
-        "icon": "constructions",
-        "component": require('/home/moraes/projects/ngo/react/opus-pro/src/pages/constructions/constructions').default,
+        "path": "/obras",
+        "name": "Obras",
+        "icon": "",
+        "component": require('/home/diogo/projects/ngo/react-app/opus-pro/src/pages/constructions').default,
         "exact": true
       }
     ]

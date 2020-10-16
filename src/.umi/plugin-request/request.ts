@@ -1,6 +1,6 @@
 // @ts-nocheck
 /**
- * Base on https://github.com/umijs//home/moraes/projects/ngo/react/opus-pro/node_modules/umi-request
+ * Base on https://github.com/umijs//home/diogo/projects/ngo/react-app/opus-pro/node_modules/umi-request
  */
 import {
   extend,
@@ -13,14 +13,14 @@ import {
   RequestResponse,
   RequestInterceptor,
   ResponseInterceptor,
-} from '/home/moraes/projects/ngo/react/opus-pro/node_modules/umi-request';
+} from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/umi-request';
 // @ts-ignore
 
 import { ApplyPluginsType } from 'umi';
 import { history, plugin } from '../core/umiExports';
             
 import { message, notification } from 'antd';
-import useUmiRequest, { UseRequestProvider } from '/home/moraes/projects/ngo/react/opus-pro/node_modules/@ahooksjs/use-request';
+import useUmiRequest, { UseRequestProvider } from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@ahooksjs/use-request';
 import {
   BaseOptions,
   BasePaginatedOptions,
@@ -36,7 +36,7 @@ import {
   PaginatedOptionsWithFormat,
   PaginatedParams,
   PaginatedResult,
-} from '/home/moraes/projects/ngo/react/opus-pro/node_modules/@ahooksjs/use-request/lib/types';
+} from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@ahooksjs/use-request/lib/types';
 
 type ResultWithData<T = any> = { data?: T; [key: string]: any };
 

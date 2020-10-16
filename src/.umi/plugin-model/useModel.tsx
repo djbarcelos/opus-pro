@@ -1,9 +1,9 @@
 // @ts-nocheck
 import { useState, useEffect, useContext, useRef } from 'react';
 // @ts-ignore
-import isEqual from '/home/moraes/projects/ngo/react/opus-pro/node_modules/fast-deep-equal/index.js';
+import isEqual from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/fast-deep-equal/index.js';
 // @ts-ignore
-import { UmiContext } from '/home/moraes/projects/ngo/react/opus-pro/node_modules/@umijs/plugin-model/lib/helpers/constant';
+import { UmiContext } from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@umijs/plugin-model/lib/helpers/constant';
 import { Model, models } from './Provider';
 
 export type Models<T extends keyof typeof models> = Model<T>[T]

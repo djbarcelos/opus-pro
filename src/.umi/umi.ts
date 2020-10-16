@@ -4,8 +4,8 @@ import '@@/core/devScripts';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/home/moraes/projects/ngo/react/opus-pro/node_modules/@umijs/runtime';
-import { renderClient } from '/home/moraes/projects/ngo/react/opus-pro/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@umijs/runtime';
+import { renderClient } from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@umijs/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 
@@ -26,7 +26,7 @@ const getClientRender = (args: { hot?: boolean; routes?: any[] } = {}) => plugin
         history: createHistory(args.hot),
         isServer: process.env.__IS_SERVER,
         rootElement: 'root',
-        defaultTitle: ``,
+        defaultTitle: `Admin OPUS Pro`,
       },
     });
     return renderClient(opts);

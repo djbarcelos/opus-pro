@@ -15,7 +15,7 @@ export const LANG_CHANGE_EVENT = Symbol('LANG_CHANGE');
 export function _onCreate() {
   const locale = getLocale();
   if (moment?.locale) {
-    moment.locale(localeInfo[locale]?.momentLocale || 'pt-br');
+    moment.locale(localeInfo[locale]?.momentLocale || '');
   }
   setIntl(locale);
 }
@@ -40,7 +40,6 @@ export const _LocaleContainer = (props:any) => {
   }, []);
 
   const defaultAntdLocale = {
-    ...require('antd/es/locale/pt_BR').default,
   }
   const direcition = getDirection();
   

@@ -3,11 +3,11 @@ import {
   createIntl,
   IntlShape,
   MessageDescriptor,
-} from '/home/moraes/projects/ngo/react/opus-pro/node_modules/react-intl';
+} from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/react-intl';
 import { ApplyPluginsType } from 'umi';
 import { event, LANG_CHANGE_EVENT } from './locale';
 // @ts-ignore
-import warning from '/home/moraes/projects/ngo/react/opus-pro/node_modules/warning/warning.js';
+import warning from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/warning/warning.js';
 
 import { plugin } from '../core/plugin';
 
@@ -34,13 +34,23 @@ export {
   defineMessages,
   injectIntl,
   useIntl,
-} from '/home/moraes/projects/ngo/react/opus-pro/node_modules/react-intl';
+} from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/react-intl';
 
 let g_intl: IntlShape;
 
 const useLocalStorage = true;
 
 export const localeInfo: {[key: string]: any} = {
+  'pt-BR': {
+    messages: {
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/home/diogo/projects/ngo/react-app/opus-pro/src/locales/pt-BR.ts')),
+    },
+    locale: 'pt-BR',
+    antd: {
+      ...require('antd/es/locale/pt_BR').default,
+    },
+    momentLocale: 'pt-br',
+  },
 };
 
 /**
