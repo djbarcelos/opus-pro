@@ -17,8 +17,8 @@ export function getRoutes() {
       },
       {
         "path": "/dashboard",
+        "icon": "dashboard",
         "name": "Principal",
-        "icon": "",
         "component": require('/home/diogo/projects/ngo/react-app/opus-pro/src/pages/dashboard').default,
         "exact": true
       },

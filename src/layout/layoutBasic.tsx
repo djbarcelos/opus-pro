@@ -1,7 +1,30 @@
+
 import React, { useRef } from 'react';
-import ProLayout, { MenuDataItem, PageContainer, DefaultFooter } from '@ant-design/pro-layout';
+import ProLayout, { MenuDataItem, PageContainer, DefaultFooter, BasicLayoutProps as ProLayoutProps, Settings, } from '@ant-design/pro-layout';
 //@ts-ignore
-import { Link, history } from 'umi';
+import { Link, history, useIntl, Dispatch, connect } from 'umi';
+import LayoutBar from './topBar/layoutBar';
+
+
+// COLOR BACKGROUND MENU BAR
+import './layoutBasic.less' 
+
+export interface BasicLayoutProps extends ProLayoutProps {
+  breadcrumbNameMap: {
+    [path: string]: MenuDataItem;
+  };
+  route: ProLayoutProps['route'] & {
+    authority: string[];
+  };
+  settings: Settings;
+  dispatch: Dispatch;
+}
+
+export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
+  breadcrumbNameMap: {
+    [path: string]: MenuDataItem;
+  };
+};
 
 const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
   menuList.map((item) => {
@@ -20,13 +43,24 @@ const defaultFooterDom = (
 );
 
 
-const BasicLayout: React.FC<any> = (props) => {
+const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const {
+    dispatch,
     settings,
   } = props;
 
   const menuDataRef = useRef<MenuDataItem[]>([]);
+  const { formatMessage } = useIntl();
+
+  const handleMenuCollapse = (payload: boolean): void => {
+    if (dispatch) {
+      dispatch({
+        type: 'global/changeLayoutCollapsed',
+        payload,
+      });
+    }
+  };
 
   return (
     <div
@@ -34,14 +68,17 @@ const BasicLayout: React.FC<any> = (props) => {
         height: '100vh',
         overflow: 'auto',
       }}>
-
       <ProLayout
-        menuHeaderRender={(logo, title) => (
-          <div style={{ color: '#FFF', margin: 'auto', fontWeight: 'bold', fontSize: '14px' }}>
-            Admin OPUS Pro
-          </div>
-        )}
-        // formatMessage={formatMessage}
+        menuHeaderRender={(logo, title) => {
+          title = title ? 'Admin OPUS Pro' : '';
+          return (
+            <div style={{ color: '#FFF', margin: 'auto', fontWeight: 'bold', fontSize: '14px' }}>
+              {title}
+            </div>
+          )
+        }}
+        formatMessage={formatMessage}
+        onCollapse={handleMenuCollapse}
         onMenuHeaderClick={() => history.push('/')}
         menuItemRender={(menuItemProps, defaultDom) => {
           if (menuItemProps.isUrl || !menuItemProps.path) {
@@ -53,6 +90,7 @@ const BasicLayout: React.FC<any> = (props) => {
           {
             path: '/',
             breadcrumbName: ''
+
           },
           ...routers,
         ]}
@@ -67,6 +105,7 @@ const BasicLayout: React.FC<any> = (props) => {
         }}
         footerRender={() => defaultFooterDom}
         menuDataRender={menuDataRender}
+        rightContentRender={() => <LayoutBar />}
         postMenuData={(menuData) => {
           menuDataRef.current = menuData || [];
           return menuData || [];
