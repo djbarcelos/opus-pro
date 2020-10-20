@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory } from '/home/diogo/projects/ngo/react-app/opus-pro/node_modules/@umijs/runtime';
+import { createBrowserHistory } from '/home/diogo/projects/ngo/opus-pro/node_modules/@umijs/runtime';
 
 let options = {
   "basename": "/"
